@@ -13,6 +13,7 @@ struct task{
     int fd;
     int buf[1024];
     void* (*callbackfun)(void *);
+    void* arg;
 }; 
 
 class PthreadPool{
