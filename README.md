@@ -13,6 +13,7 @@ web网络访问服务器
             int fd;
             int buf[1024];
             void* (*callbackfun)(void *);
+            void* arg;
         };
     ```
 + 结构体中的callbackfun是线程接受到任务后执行的回调函数,其参数为task自身。可以通过task上的arg传入自定义的数据。
