@@ -105,8 +105,6 @@ void *PthreadPool::Worder(void *arg){
         ptr->pthread_word_size--;
         pthread_mutex_unlock(&ptr->pool_mutex_lock);
 
-        // 释放内存
-        delete ta;
     }
     std::cout << "工作线程" << pthread_self() <<  "关闭成功!" << std::endl;
     pthread_exit((void*)1);
