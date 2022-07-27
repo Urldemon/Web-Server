@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _PTHREADPOOL_H_
 #define _PTHREADPOOL_H_
 
@@ -9,7 +10,6 @@
 #define PTHREAD_DEL_SIZE 2
 #define PTHREAD_CRE_SIZE 2
 
-#pragma pack(8)
 struct task{
     int fd;
     int buf[1024];
