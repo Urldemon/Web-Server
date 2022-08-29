@@ -25,12 +25,12 @@ PthreadPool::PthreadPool(int que_size,int pool_min,int pool_copacity){
     // 创建线程 
     this->m_thread = new pthread_t[this->pthread_pool_minsize];
     if(!this->m_thread)
-        throw std::exception();
+        std::cout << "线程池内存申请失败" << std::endl;
 
     for(int i = 0;i < this->pthread_pool_minsize;i++){
         if(pthread_create(this->m_thread + i,&attr,Worder,this) != 0){
             delete [] this->m_thread;
-            throw std::exception();
+            std::cout << "线程"<< this->m_thread+i <<"创建失败" << std::endl;
         }
         std::cout << "线程"<< this->m_thread+i <<"创建成功" << std::endl;
     }
@@ -41,7 +41,7 @@ PthreadPool::PthreadPool(int que_size,int pool_min,int pool_copacity){
     {
         delete this->marge_thread;
         delete [] this->m_thread;
-        throw std::exception();
+        std::cout <<"管理线程创建失败" << std::endl;
     }
     std::cout <<"线程池创建完毕!" << std::endl;
 }
